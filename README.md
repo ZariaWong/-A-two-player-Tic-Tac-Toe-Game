@@ -9,3 +9,29 @@ In addition, the system needs to handle the case when one of the players leaves 
 
 Furthermore, the game interface includes a JMenuBar with two JMenus: Control and Help. The Control menu has a JMenuItem named Exit, and the Help menu has a JMenuItem named Instruction. When the player clicks "Exit", they would exit the game and the game would be terminated immediately. When the player clicks "Instruction", a Dialog Frame consisting of some game information would be displayed.
 
+# Program Execution
+ENVIRONMENT REQUIREMENTS: Please run the program in Eclipse environment
+
+STEPS
+1. Open the "Server.java" and click the "run server" button. A sentence "Server is running..."should be printed in terminal
+2. Open the "Player1.java" and click the "run server" button. A sentence "Server is connected to client1" should be printed in terminal.
+3. Open the "Player2.java" and click the "run server" button. A sentence "Server is connected to client2" should be printed in terminal.
+4. If one of the player leave, multiple sentences of "BREAKPlayer" commands will be printed in the terminal. 
+The message of "Game Ends. One of the players left" message will pop out on the interface of another player when he/she tries a make a new move.
+
+ASSUMPTIONS
+1. Assume that player 1 with class player 1 is always the player who enters the game first.
+2. Assume that player 2 with class player 2 is always the player who enters the game later.
+3. Assume that no more players can be connected to the server. (i.e. player 1 class can only be runned once to create one player 1 object, player 2 class can only be runned once to create one player 2 object. 
+4. Assume that only server, player1 and player2 classes are located on local host (i.e., with IP address 127.0.0.1). 
+
+SPECIAL NOTES
+The message of "Game Ends. One of the players left" will also appears in the following conditions:
+1. Connection between Player 1 and server is not successful ("Connection reset" will be printed in terminal")
+2. Connection between Player 2 and server is not successful("Connection reset" will be printed in terminal")
+3. The server faces an ConcurrentModificationException("ConcurrentModificationException" will be printed in terminal")
+In this case, even if connection reset, we still have to terminate the server, player 1 class and player 2 class.
+We can restart the game by repeating steps 1 - 3.
+
+If "Exception in thread "main" java.lang.NullPointerException" is printed in terminal. Please close the Eclipse envionment to restart the game.
+Repeat steps 1 - 3.
